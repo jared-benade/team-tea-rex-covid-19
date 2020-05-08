@@ -1,10 +1,9 @@
-﻿@model TeamTeaRexCovid19.Web.Models.DailyQuestions
+﻿
+@model TeamTeaRexCovid19.Web.Models.DailyQuestions
 
 @{
-    ViewData["Title"] = "View";
+    ViewData["Title"] = "Daily Questions";
 }
-
-<h1>View</h1>
 
 <h4>Daily Questions</h4>
 <hr />
@@ -12,6 +11,105 @@
     <div class="col-md-4">
         <form asp-action="View">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+
+                <label asp-for="PeopleInteractedWith" class="col-md-2 control-label">
+                    How many people outside of your immediate family have you interacted with today?
+                </label>
+
+                @Html.DropDownListFor(x => x.PeopleInteractedWith, new List<SelectListItem>
+                   {
+                        new SelectListItem() {Text = "1", Value="1"},
+                        new SelectListItem() {Text = "2", Value="2"},
+                        new SelectListItem() {Text = "3", Value="3"},
+                        new SelectListItem() {Text = "4", Value="4"}
+
+                   })
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Fever" class="col-md-2 control-label">
+                    Do you have a fever?
+                </label>
+
+                Yes
+                @Html.RadioButtonFor(m => m.Fever, "Yes")
+                No
+                @Html.RadioButtonFor(m => m.Fever, "No")
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PersistentCough" class="col-md-2 control-label">
+                    Do you have a persistent cough?
+                </label>
+
+                Yes
+                @Html.RadioButtonFor(m => m.PersistentCough, "Yes")
+                No
+                @Html.RadioButtonFor(m => m.PersistentCough, "No")
+            </div>
+
+            <div class="form-group">
+                <label asp-for="UnusualFatigue" class="col-md-2 control-label">
+                    Are you experiencing unusual fatigue?
+                </label>
+
+                Yes
+                @Html.RadioButtonFor(m => m.UnusualFatigue, "Yes")
+                No
+                @Html.RadioButtonFor(m => m.UnusualFatigue, "No")
+            </div>
+
+            <div class="form-group">
+                <label asp-for="EatAnything" class="col-md-2 control-label">
+                    Have you been able to eat anything?
+                </label>
+
+                Yes
+                @Html.RadioButtonFor(m => m.EatAnything, "Yes")
+                No
+                @Html.RadioButtonFor(m => m.EatAnything, "No")
+            </div>
+
+            <div class="form-group">
+                <label asp-for="FeelRightNow" class="col-md-2 control-label">
+                    How do you feel right now?
+                </label>
+
+                Yes
+                @Html.RadioButtonFor(m => m.FeelRightNow, "I feel healthy as normal")
+                No
+                @Html.RadioButtonFor(m => m.FeelRightNow, "I'm not feeling quite right")
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LeaveHomeToday" class="col-md-2 control-label">
+                    Did you leave home today?
+                </label>
+
+                Yes
+                @Html.RadioButtonFor(m => m.LeaveHomeToday, "Yes")
+                No
+                @Html.RadioButtonFor(m => m.LeaveHomeToday, "No")
+
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Treatment" class="col-md-2 control-label">
+                    What treatment are you receiving?
+                </label>
+
+                @Html.DropDownListFor(x => x.Treatment, new List<SelectListItem>
+                   {
+                        new SelectListItem() {Text = "TB", Value="TB"},
+                        new SelectListItem() {Text = "Asthma", Value="Asthma"},
+                        new SelectListItem() {Text = "Diabetes", Value="Diabetes"},
+                        new SelectListItem() {Text = "Pneumonia", Value="Pneumonia"},
+                        new SelectListItem() {Text = "Other", Value="Other"}
+                   })
+            </div>
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
