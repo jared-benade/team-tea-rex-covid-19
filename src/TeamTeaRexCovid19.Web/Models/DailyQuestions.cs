@@ -10,7 +10,7 @@ namespace TeamTeaRexCovid19.Web.Models
         [Required(ErrorMessage = "Please select if you have fever")]
         public bool Fever { get; set; }
 
-        [Required(ErrorMessage = "Please select if you have eat anything that may cause you to feel sick")]
+        [Required(ErrorMessage = "Please select if you have any cough")]
         public bool PersistentCough { get; set; }
 
         [Required(ErrorMessage = "Please select if you have any unusual fatigue")]
