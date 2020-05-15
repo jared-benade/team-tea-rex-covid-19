@@ -7,7 +7,7 @@
 <h2>Initial Questions</h2>
 
 
-<form>
+<form method="post">
     <div asp-validation-summary="ModelOnly"></div>
     <div>
         <label asp-for="SelectedProvince"></label>
@@ -66,8 +66,7 @@
     </div>
     <br />
     <div>
-        <input type="submit" value="Submit" class="btn btn-primary" />
+        <input type="submit" name="Submit" value="Submit" asp-action="InitialQuestions"/>
     </div>
-
 </form>
 

@@ -11,7 +11,7 @@ namespace TeamTeaRexCovid19.Web.Controllers
     {
 
         // GET: DailyQuestions/Create
-        public ActionResult Create()
+        public ActionResult DailyQuestions()
         {
             return View();
         }
@@ -24,7 +24,6 @@ namespace TeamTeaRexCovid19.Web.Controllers
             try
             {
                 // TODO: Add insert logic here
-
                 return Redirect("Views/DailyQuestion/Reminder");
             }
             catch
