@@ -24,12 +24,18 @@ namespace TeamTeaRexCovid19.Web.Controllers
             try
             {
                 // TODO: Add insert logic here
-                return Redirect("Views/DailyQuestion/Reminder");
+                return RedirectToAction($"Reminder", $"DailyQuestions");
             }
             catch
             {
                 return View();
             }
         }
+
+        public ActionResult Reminder()
+        {
+            return View();
+        }
+
     }
 }
