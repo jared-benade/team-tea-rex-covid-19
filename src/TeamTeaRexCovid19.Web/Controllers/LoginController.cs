@@ -16,8 +16,7 @@ namespace TeamTeaRexCovid19.Web.Controllers
         [HttpPost]
         public IActionResult Index(string username)
         {
-            //TODO: Add navigation to the once off  question page.
-            return View();
+            return RedirectToAction($"InitialQuestions", $"InitialQuestions");
         }
     }
 }

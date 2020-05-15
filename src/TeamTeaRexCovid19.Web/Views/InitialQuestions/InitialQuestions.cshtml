@@ -1,0 +1,60 @@
+﻿@model TeamTeaRexCovid19.Web.Models.InitialQuestionsViewModel
+@{
+    ViewBag.Title = "Initial Questions";
+    Layout = $"_Layout";
+}
+
+<h2>Initial Questions</h2>
+
+
+<form>
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <div>
+        <label asp-for="SelectedProvince" class="control-label"></label>
+        <input asp-for="SelectedProvince" class="form-control" />
+        <span asp-validation-for="SelectedProvince"></span>
+    </div>
+
+    <div>
+        <label asp-for="Suburb"></label>
+        <input asp-for="Suburb"/>
+        <span asp-validation-for="Suburb"></span>
+    </div>
+
+    <div>
+        <label asp-for="SelectedAgeGroup"></label>
+        <input asp-for="SelectedAgeGroup"/>
+        <span asp-validation-for="SelectedAgeGroup"></span>
+    </div>
+
+    <div>
+        <label>
+            <input asp-for="IsSmoker" /> @Html.DisplayNameFor(model => model.IsSmoker)
+        </label>
+    </div>
+
+    <div>
+        <label>
+            <input asp-for="IsDrinker" /> @Html.DisplayNameFor(model => model.IsDrinker)
+        </label>
+    </div>
+
+    <div>
+        <label asp-for="DoesShareLivingSpace"></label>
+        <input asp-for="DoesShareLivingSpace"/>
+        <span asp-validation-for="DoesShareLivingSpace"></span>
+    </div>
+
+    <div>
+        <label>
+            <input asp-for="TransportType" /> @Html.DisplayNameFor(model => model.TransportType)
+        </label>
+    </div>
+
+    <div>
+        <input type="submit" value="Submit" class="btn btn-primary" />
+    </div>
+
+</form>
+
