@@ -9,12 +9,11 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="CreateDailyQuestions">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form asp-action="SubmitDailyQuestions">
+            <div asp-validation-summary="ModelOnly"></div>
 
-            <div class="form-group">
-
-                <label asp-for="PeopleInteractedWith" class="col-md-2 control-label">
+            <div>
+                <label asp-for="PeopleInteractedWith">
                     How many people outside of your immediate family have you interacted with today?
                 </label>
 
@@ -27,76 +26,69 @@
 
                    })
             </div>
-
-            <div class="form-group">
-                <label asp-for="Fever" class="col-md-2 control-label">
+            <br />
+            <div>
+                <label asp-for="Fever">
                     Do you have a fever?
                 </label>
-
                 Yes
                 @Html.RadioButtonFor(m => m.Fever, "Yes")
                 No
                 @Html.RadioButtonFor(m => m.Fever, "No")
             </div>
-
-            <div class="form-group">
-                <label asp-for="PersistentCough" class="col-md-2 control-label">
+            <br />
+            <div>
+                <label asp-for="PersistentCough">
                     Do you have a persistent cough?
                 </label>
-
                 Yes
                 @Html.RadioButtonFor(m => m.PersistentCough, "Yes")
                 No
                 @Html.RadioButtonFor(m => m.PersistentCough, "No")
             </div>
-
-            <div class="form-group">
-                <label asp-for="UnusualFatigue" class="col-md-2 control-label">
+            <br />
+            <div>
+                <label asp-for="UnusualFatigue">
                     Are you experiencing unusual fatigue?
                 </label>
-
                 Yes
                 @Html.RadioButtonFor(m => m.UnusualFatigue, "Yes")
                 No
                 @Html.RadioButtonFor(m => m.UnusualFatigue, "No")
             </div>
-
-            <div class="form-group">
-                <label asp-for="EatAnything" class="col-md-2 control-label">
+            <br />
+            <div>
+                <label asp-for="EatAnything">
                     Have you been able to eat anything?
                 </label>
-
                 Yes
                 @Html.RadioButtonFor(m => m.EatAnything, "Yes")
                 No
                 @Html.RadioButtonFor(m => m.EatAnything, "No")
             </div>
-
-            <div class="form-group">
-                <label asp-for="FeelRightNow" class="col-md-2 control-label">
+            <br />
+            <div>
+                <label asp-for="FeelRightNow">
                     How do you feel right now?
                 </label>
-
                 Yes
                 @Html.RadioButtonFor(m => m.FeelRightNow, "I feel healthy as normal")
                 No
                 @Html.RadioButtonFor(m => m.FeelRightNow, "I'm not feeling quite right")
             </div>
-
-            <div class="form-group">
-                <label asp-for="LeaveHomeToday" class="col-md-2 control-label">
+            <br />
+            <div>
+                <label asp-for="LeaveHomeToday">
                     Did you leave home today?
                 </label>
-
                 Yes
                 @Html.RadioButtonFor(m => m.LeaveHomeToday, "Yes")
                 No
                 @Html.RadioButtonFor(m => m.LeaveHomeToday, "No")
-
             </div>
-
-            <div class="form-group">
-                <label asp-for="Treatment" class="col-md-2 control-label">
+            <br />
+            <div>
+                <label asp-for="Treatment">
                     What treatment are you receiving?
                 </label>
 
@@ -109,7 +101,7 @@
                         new SelectListItem() {Text = "Other", Value="Other"}
                    })
             </div>
-
+            <br />
             <div>
                 <input type="submit" value="Submit" class="btn-primary" />
             </div>

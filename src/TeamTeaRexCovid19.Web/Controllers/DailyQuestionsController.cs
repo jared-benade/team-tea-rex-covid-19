@@ -9,33 +9,21 @@ namespace TeamTeaRexCovid19.Web.Controllers
 {
     public class DailyQuestionsController : Controller
     {
-
-        // GET: DailyQuestions/Create
         public ActionResult DailyQuestions()
         {
             return View();
         }
 
-        // POST: DailyQuestions/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateDailyQuestions(IFormCollection collection)
+        public ActionResult SubmitDailyQuestions(IFormCollection collection)
         {
-            try
-            {
-                // TODO: Add insert logic here
-                return RedirectToAction($"Reminder", $"DailyQuestions");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction($"Reminder", $"DailyQuestions");
         }
 
         public ActionResult Reminder()
         {
             return View();
         }
-
     }
 }
