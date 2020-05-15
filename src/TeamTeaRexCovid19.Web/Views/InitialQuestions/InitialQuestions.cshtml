@@ -9,49 +9,62 @@
 
 <form>
     <div asp-validation-summary="ModelOnly"></div>
-
     <div>
-        <label asp-for="SelectedProvince" class="control-label"></label>
-        <input asp-for="SelectedProvince" class="form-control" />
+        <label asp-for="SelectedProvince"></label>
+        @Html.DropDownListFor(x => x.SelectedProvince, new List<SelectListItem>()
+        {
+            new SelectListItem(){Text = "Western Cape", Value = "Western Cape"},
+            new SelectListItem(){Text = "Eastern Cape", Value = "Eastern Cape"},
+            new SelectListItem(){Text = "Northern Cape", Value = "Northern Cape"},
+            new SelectListItem(){Text = "North West", Value = "North West"},
+            new SelectListItem(){Text = "Free State", Value = "Free State"},
+            new SelectListItem(){Text = "KwaZulu Natal", Value = "KwaZulu Natal"},
+            new SelectListItem(){Text = "Gauteng", Value = "Gauteng"},
+            new SelectListItem(){Text = "Limpopo", Value = "Limpopo"},
+            new SelectListItem(){Text = "Mpumlanga", Value = "Mpumlanga"}
+        })
         <span asp-validation-for="SelectedProvince"></span>
     </div>
-
+    <br />
     <div>
         <label asp-for="Suburb"></label>
-        <input asp-for="Suburb"/>
+        <input asp-for="Suburb" />
         <span asp-validation-for="Suburb"></span>
     </div>
-
+    <br />
     <div>
         <label asp-for="SelectedAgeGroup"></label>
-        <input asp-for="SelectedAgeGroup"/>
+        <input asp-for="SelectedAgeGroup" />
         <span asp-validation-for="SelectedAgeGroup"></span>
     </div>
-
+    <br />
     <div>
-        <label>
-            <input asp-for="IsSmoker" /> @Html.DisplayNameFor(model => model.IsSmoker)
-        </label>
+        <label asp-for="IsSmoker"></label>
+        <input asp-for="IsSmoker"/>
     </div>
-
+    <br />
     <div>
-        <label>
-            <input asp-for="IsDrinker" /> @Html.DisplayNameFor(model => model.IsDrinker)
-        </label>
+        <label asp-for="IsDrinker"></label>
+            <input asp-for="IsDrinker" />
     </div>
-
+    <br />
     <div>
         <label asp-for="DoesShareLivingSpace"></label>
-        <input asp-for="DoesShareLivingSpace"/>
+        <input asp-for="DoesShareLivingSpace" />
         <span asp-validation-for="DoesShareLivingSpace"></span>
     </div>
-
+    <br />
     <div>
         <label>
-            <input asp-for="TransportType" /> @Html.DisplayNameFor(model => model.TransportType)
+            <label asp-for="TransportType"></label>
+            @Html.DropDownListFor(x => x.TransportType, new List<SelectListItem>()
+            {
+                new SelectListItem(){Text = "Public",Value="Public"},
+                new SelectListItem(){Text = "Private",Value="Private"}
+            })
         </label>
     </div>
-
+    <br />
     <div>
         <input type="submit" value="Submit" class="btn btn-primary" />
     </div>

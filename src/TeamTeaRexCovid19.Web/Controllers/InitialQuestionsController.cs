@@ -10,6 +10,7 @@ namespace TeamTeaRexCovid19.Web.Controllers
     {
         public IActionResult InitialQuestions()
         {
+            
             return View();
         }
     }
