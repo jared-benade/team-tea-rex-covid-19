@@ -19,13 +19,13 @@ namespace TeamTeaRexCovid19.Web.Controllers
         // POST: DailyQuestions/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult CreateDailyQuestions(IFormCollection collection)
         {
             try
             {
                 // TODO: Add insert logic here
 
-                return RedirectToAction(nameof(Index));
+                return Redirect("Views/DailyQuestion/Reminder");
             }
             catch
             {
