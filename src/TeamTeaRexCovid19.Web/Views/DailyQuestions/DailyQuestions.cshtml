@@ -5,8 +5,10 @@
     ViewData["Title"] = "Daily Questions";
 }
 
-<h4>Daily Questions</h4>
+@*To implement same styling or table*@
+<h2>Daily Questions</h2>
 <hr />
+<br />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="SubmitDailyQuestions">
@@ -27,64 +29,77 @@
                    })
             </div>
             <br />
+
             <div>
                 <label asp-for="Fever">
                     Do you have a fever?
                 </label>
-                Yes
-                @Html.RadioButtonFor(m => m.Fever, "Yes")
-                No
-                @Html.RadioButtonFor(m => m.Fever, "No")
+
+                <input style="margin-left:13%" type="radio" name="Fever" value="Yes" /> Yes
+                <br />
+
+                <input style="margin-left:24%" type="radio" name="Fever" value="No" checked="checked" /> No
             </div>
             <br />
             <div>
+
                 <label asp-for="PersistentCough">
                     Do you have a persistent cough?
                 </label>
-                Yes
-                @Html.RadioButtonFor(m => m.PersistentCough, "Yes")
-                No
-                @Html.RadioButtonFor(m => m.PersistentCough, "No")
+
+                <input style="margin-left:8%" type="radio" name="PersistentCough" value="Yes" /> Yes
+
+                <br />
+
+                <input style="margin-left:24%" type="radio" name="PersistentCough" value="No" checked="checked" /> No
+
             </div>
             <br />
             <div>
                 <label asp-for="UnusualFatigue">
                     Are you experiencing unusual fatigue?
                 </label>
-                Yes
-                @Html.RadioButtonFor(m => m.UnusualFatigue, "Yes")
-                No
-                @Html.RadioButtonFor(m => m.UnusualFatigue, "No")
+
+                <input style="margin-left:5%" type="radio" name="UnusualFatigue" value="Yes" />Yes
+
+                <br />
+                <input style="margin-left:24%" type="radio" name="UnusualFatigue" value="No" checked="checked" /> No
             </div>
             <br />
             <div>
                 <label asp-for="EatAnything">
                     Have you been able to eat anything?
                 </label>
-                Yes
-                @Html.RadioButtonFor(m => m.EatAnything, "Yes")
-                No
-                @Html.RadioButtonFor(m => m.EatAnything, "No")
+
+                <input style="margin-left:6%" type="radio" name="EatAnything" value="Yes" />Yes
+
+                <br />
+                <input style="margin-left:24%" type="radio" name="EatAnything" value="No" checked="checked" />No
+
             </div>
             <br />
             <div>
                 <label asp-for="FeelRightNow">
                     How do you feel right now?
                 </label>
-                Yes
-                @Html.RadioButtonFor(m => m.FeelRightNow, "I feel healthy as normal")
-                No
-                @Html.RadioButtonFor(m => m.FeelRightNow, "I'm not feeling quite right")
+
+                <input style="margin-left:10%" type="radio" name="FeelRightNow" value="I feel healthy as normal" />I feel healthy as normal
+
+                <br />
+                <input style="margin-left:24%" type="radio" name="FeelRightNow" value="I'm not feeling quite right" checked="checked" />I'm not feeling quite right
+
             </div>
             <br />
             <div>
                 <label asp-for="LeaveHomeToday">
                     Did you leave home today?
                 </label>
-                Yes
-                @Html.RadioButtonFor(m => m.LeaveHomeToday, "Yes")
-                No
-                @Html.RadioButtonFor(m => m.LeaveHomeToday, "No")
+
+                <input style="margin-left:10%" type="radio" name="LeaveHomeToday" value="Yes" /> Yes
+
+                <br />
+                <input style="margin-left:24%" type="radio" name="LeaveHomeToday" value="No" checked="checked" /> No
+
             </div>
             <br />
             <div>
@@ -103,7 +118,7 @@
             </div>
             <br />
             <div>
-                <input type="submit" value="Submit" class="btn-primary" />
+                <input type="submit" value="Submit" />
             </div>
         </form>
     </div>
