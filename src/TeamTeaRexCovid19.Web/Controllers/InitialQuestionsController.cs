@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 
 namespace TeamTeaRexCovid19.Web.Controllers
 {
@@ -10,8 +11,12 @@ namespace TeamTeaRexCovid19.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult InitialQuestions()
+        public IActionResult InitialQuestions(string SelectedProvince, string Suburb, string SelectedAgeGroup, bool IsSmoker,
+            bool IsDrinker, int DoesShareLivingSpace, string TransportType)
         {
+            if (string.IsNullOrEmpty(Suburb) || string.IsNullOrEmpty(DoesShareLivingSpace.ToString()))
+                return RedirectToAction($"", $""); //TODO: Navigate to the Validation Page.
+
             return RedirectToAction($"DailyQuestions", $"DailyQuestions");
         }
     }
