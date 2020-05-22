@@ -15,9 +15,14 @@ namespace TeamTeaRexCovid19.Web.Controllers
             bool IsDrinker, int DoesShareLivingSpace, string TransportType)
         {
             if (string.IsNullOrEmpty(Suburb) || string.IsNullOrEmpty(DoesShareLivingSpace.ToString()))
-                return RedirectToAction($"", $""); //TODO: Navigate to the Validation Page.
+                return View($"Validation");
 
             return RedirectToAction($"DailyQuestions", $"DailyQuestions");
+        }
+
+        public IActionResult Validation()
+        {
+            return View();
         }
     }
 }
