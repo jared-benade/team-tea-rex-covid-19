@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = " User Login";
 }
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
 <h1>Welcome !!</h1>
 
@@ -9,8 +10,29 @@
     <div>
         <label>Enter name:</label>
         @Html.TextBox("username", null)
+        @(Html.Hidden("userId"))
     </div>
     <div>
-        <input type="submit" name="Login" value="Login"/>
+        <input type="submit" id="login" name="Login" value="Login" />
     </div>
 </form>
+
+<script>
+    $("#login").click(function () {
+        var username = $("#username").val();
+        var userId = createGuid(username);
+        setCookie(username, userId, 7);
+        $("#userId").val(userId);
+    });
+
+    function createGuid(name) {
+        return name + "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx".replace(/[x]/g, function (c) {
+            var r = Math.random() * 16 | 0, v = c === "x" ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+
+    function setCookie(name, id, days) {
+        document.cookie = name + "=" + id + ";expires=" + days;
+    }
+</script>

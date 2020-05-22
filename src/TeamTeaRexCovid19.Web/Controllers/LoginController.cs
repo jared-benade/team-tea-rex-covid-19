@@ -14,7 +14,7 @@ namespace TeamTeaRexCovid19.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(string username)
+        public IActionResult Index(string username, string userId)
         {
             return RedirectToAction($"Index", $"InitialQuestions");
         }
