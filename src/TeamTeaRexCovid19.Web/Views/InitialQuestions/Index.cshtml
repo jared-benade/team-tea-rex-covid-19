@@ -5,23 +5,22 @@
 }
 
 <h2>Initial Questions</h2>
-
-
+<hr />
 <form method="post">
     <div asp-validation-summary="ModelOnly"></div>
     <div>
         <label asp-for="SelectedProvince"></label>
-        @Html.DropDownListFor(x => x.SelectedProvince, new List<SelectListItem>()
+        @Html.DropDownListFor(m => m.SelectedProvince, new List<SelectListItem>()
         {
-            new SelectListItem(){Text = "Western Cape", Value = "Western Cape"},
-            new SelectListItem(){Text = "Eastern Cape", Value = "Eastern Cape"},
-            new SelectListItem(){Text = "Northern Cape", Value = "Northern Cape"},
-            new SelectListItem(){Text = "North West", Value = "North West"},
-            new SelectListItem(){Text = "Free State", Value = "Free State"},
-            new SelectListItem(){Text = "KwaZulu Natal", Value = "KwaZulu Natal"},
-            new SelectListItem(){Text = "Gauteng", Value = "Gauteng"},
-            new SelectListItem(){Text = "Limpopo", Value = "Limpopo"},
-            new SelectListItem(){Text = "Mpumlanga", Value = "Mpumlanga"}
+            new SelectListItem(){Text = "Western Cape".ToUpper(), Value = "Western Cape".ToUpper()},
+            new SelectListItem(){Text = "Eastern Cape".ToUpper(), Value = "Eastern Cape".ToUpper()},
+            new SelectListItem(){Text = "Northern Cape".ToUpper(), Value = "Northern Cape".ToUpper()},
+            new SelectListItem(){Text = "North West".ToUpper(), Value = "North West".ToUpper()},
+            new SelectListItem(){Text = "Free State".ToUpper(), Value = "Free State".ToUpper()},
+            new SelectListItem(){Text = "KwaZulu Natal".ToUpper(), Value = "KwaZulu Natal".ToUpper()},
+            new SelectListItem(){Text = "Gauteng".ToUpper(), Value = "Gauteng".ToUpper()},
+            new SelectListItem(){Text = "Limpopo".ToUpper(), Value = "Limpopo".ToUpper()},
+            new SelectListItem(){Text = "Mpumlanga".ToUpper(), Value = "Mpumlanga".ToUpper()}
         })
         <span asp-validation-for="SelectedProvince"></span>
     </div>
@@ -33,31 +32,52 @@
     </div>
     <br />
     <div>
-        <label asp-for="SelectedAgeGroup"></label>
-        <input asp-for="SelectedAgeGroup" />
-        <span asp-validation-for="SelectedAgeGroup"></span>
+        <label>
+            <label asp-for="SelectedAgeGroup"></label>
+            @Html.DropDownListFor(m => m.SelectedAgeGroup, new List<SelectListItem>()
+            {
+                new SelectListItem(){Text = "18-24", Value="18-24"},
+                new SelectListItem(){Text = "25-34", Value="25-34"},
+                new SelectListItem(){Text = "35-44", Value="35-44"},
+                new SelectListItem(){Text = "45-54", Value="45-54"},
+                new SelectListItem(){Text = "55-64", Value="55-64"},
+                new SelectListItem(){Text = "65 and over", Value="65+"}
+            })
+        </label>
     </div>
     <br />
     <div>
-        <label asp-for="IsSmoker"></label>
-        <input asp-for="IsSmoker"/>
+        <label asp-for="IsSmoker">
+            Do you smoke?
+        </label>
+        <br />
+        Yes
+        <input type="radio" name="IsSmoker" value="true" />
+        No
+        <input type="radio" name="IsSmoker" value="false" checked="checked" />
     </div>
     <br />
     <div>
-        <label asp-for="IsDrinker"></label>
-            <input asp-for="IsDrinker" />
+        <label asp-for="IsDrinker">
+            Do you drink?
+        </label>
+        <br />
+        Yes
+        <input type="radio" name="IsDrinker" value="true" />
+        No
+        <input type="radio" name="IsDrinker" value="false" checked="checked" />
     </div>
     <br />
     <div>
         <label asp-for="DoesShareLivingSpace"></label>
-        <input asp-for="DoesShareLivingSpace" />
+        <input asp-for="DoesShareLivingSpace" value="0" />
         <span asp-validation-for="DoesShareLivingSpace"></span>
     </div>
     <br />
     <div>
         <label>
             <label asp-for="TransportType"></label>
-            @Html.DropDownListFor(x => x.TransportType, new List<SelectListItem>()
+            @Html.DropDownListFor(m => m.TransportType, new List<SelectListItem>()
             {
                 new SelectListItem(){Text = "Public",Value="Public"},
                 new SelectListItem(){Text = "Private",Value="Private"}
@@ -66,7 +86,7 @@
     </div>
     <br />
     <div>
-        <input type="submit" name="Submit" value="Submit" asp-action="InitialQuestions"/>
+        <input type="submit" name="Submit" value="Submit" asp-action="InitialQuestions" />
     </div>
 </form>
 
