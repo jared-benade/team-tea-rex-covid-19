@@ -23,30 +23,50 @@
 
         var userId = '';
         var cookieFound = false;
-        var splitCookies = document.cookie.split(';');
-        splitCookies.forEach(cookie => {
-            if (cookie.toLowerCase().includes(username.toLowerCase())) {
-                userId = cookie.split('=')[1];
-                cookieFound = true;
-            }
-        });
+
+        if (document.cookie) {
+            var splitCookies = document.cookie.split(';');
+
+            splitCookies.forEach(cookie => {
+                var cookieValue;
+                var storedUserIdWithFlag = cookie.split('=')[1];
+
+                if (storedUserIdWithFlag) {
+                    var storedUserId = storedUserIdWithFlag.split('.')[0];
+                    var cookieUsername = cookie.split('=')[0];
+
+                    if (cookie.toLowerCase().includes(username.toLowerCase())) {
+                        userId = storedUserId;
+                        cookieValue = userId + '.' + 'Current';
+                        cookieFound = true;
+                    } else {
+                        cookieValue = storedUserId;
+                    }
+
+                    setCookie(cookieUsername, cookieValue);
+                }
+            });
+        }
 
         if (!cookieFound) {
-            userId = createGuid(username);
-            setCookie(username, userId, 7);
+            userId = createGuid();
+            var currentUserId = userId + '.' + 'Current';
+            setCookie(username, currentUserId);
         }
-        
+
         $("#userId").val(userId);
     });
 
-    function createGuid(name) {
+    function createGuid() {
         return "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx".replace(/[x]/g, function (c) {
             var r = Math.random() * 16 | 0, v = c === "x" ? r : (r & 0x3 | 0x8);
             return v.toString(16);
         });
     }
 
-    function setCookie(name, id, days) {
-        document.cookie = name + "=" + id + ";expires=" + days;
+    function setCookie(name, userId) {
+        var expiration_date = new Date();
+        expiration_date.setFullYear(expiration_date.getFullYear() + 1);
+        document.cookie = name + "=" + userId + ";expires=" + expiration_date.toUTCString();
     }
 </script>
