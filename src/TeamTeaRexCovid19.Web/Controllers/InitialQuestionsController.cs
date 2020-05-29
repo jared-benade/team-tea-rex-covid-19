@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TeamTeaRexCovid19.Domain.Models;
+using TeamTeaRexCovid19.Web.Models;
 
 namespace TeamTeaRexCovid19.Web.Controllers
 {
@@ -11,13 +12,14 @@ namespace TeamTeaRexCovid19.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult InitialQuestions(string SelectedProvince, string Suburb, string SelectedAgeGroup, bool IsSmoker,
-            bool IsDrinker, int DoesShareLivingSpace, string TransportType, string userId)
+        public IActionResult InitialQuestions(InitialQuestionsViewModel initialQuestionsViewModel)
         {
-            if (string.IsNullOrEmpty(Suburb) || string.IsNullOrEmpty(DoesShareLivingSpace.ToString()))
+            if (string.IsNullOrEmpty(initialQuestionsViewModel.Suburb) || string.IsNullOrEmpty(initialQuestionsViewModel.DoesShareLivingSpace.ToString()))
                 return View("Validation");
 
-            var initialQuestions = new InitialQuestions(SelectedProvince, Suburb, SelectedAgeGroup, IsSmoker, IsDrinker, DoesShareLivingSpace, TransportType);
+            var initialQuestions = new InitialQuestions(initialQuestionsViewModel.SelectedProvince, initialQuestionsViewModel.Suburb, 
+                initialQuestionsViewModel.SelectedAgeGroup, initialQuestionsViewModel.IsSmoker, initialQuestionsViewModel.IsDrinker,
+                initialQuestionsViewModel.DoesShareLivingSpace, initialQuestionsViewModel.TransportType);
 
             return RedirectToAction("Index", "DailyQuestions");
         }
