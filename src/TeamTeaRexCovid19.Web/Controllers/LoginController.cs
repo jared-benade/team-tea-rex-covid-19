@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace TeamTeaRexCovid19.Web.Controllers
 {
@@ -12,6 +13,7 @@ namespace TeamTeaRexCovid19.Web.Controllers
         [HttpPost]
         public IActionResult Index(string userId, bool isReturningUser)
         {
+            HttpContext.Session.SetString("UserIdSession", userId);
             return RedirectToAction("Index", isReturningUser ? "DailyQuestions" : "InitialQuestions");
         }
     }
