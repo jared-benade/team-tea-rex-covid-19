@@ -1,0 +1,108 @@
+﻿
+@model TeamTeaRexCovid19.Web.Models.DailyQuestions
+
+@{
+    ViewData["Title"] = "Daily Questions";
+}
+
+<h2>Daily Questions</h2>
+<hr />
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="SubmitDailyQuestions">
+            <div asp-validation-summary="ModelOnly"></div>
+
+            <div>
+                <label asp-for="PeopleInteractedWith">
+                    How many people outside of your immediate family have you interacted with today?
+                </label>
+                <input asp-for="PeopleInteractedWith" value="0" style="width:6%" />
+            </div>
+            <br />
+
+            <div>
+                <label asp-for="IsFever">
+                    Do you have a fever?
+                </label>
+                <br />
+                <input type="radio" name="IsFever" value="true" /> Yes
+                <input type="radio" name="IsFever" value="false" checked="checked" /> No
+            </div>
+
+            <br />
+            <div>
+                <label asp-for="IsPersistentCough">
+                    Do you have a persistent cough?
+                </label>
+                <br />
+                <input type="radio" name="IsPersistentCough" value="true" /> Yes
+                <input type="radio" name="IsPersistentCough" value="false" checked="checked" /> No
+            </div>
+
+            <br />
+            <div>
+                <label asp-for="IsUnusualFatigue">
+                    Are you experiencing unusual fatigue?
+                </label>
+                <br />
+                <input type="radio" name="IsUnusualFatigue" value="true" />Yes
+                <input type="radio" name="IsUnusualFatigue" value="false" checked="checked" /> No
+            </div>
+
+            <br />
+            <div>
+                <label asp-for="IsEatAnything">
+                    Have you been able to eat anything?
+                </label>
+                <br />
+                <input type="radio" name="IsEatAnything" value="true" />Yes
+                <input type="radio" name="IsEatAnything" value="false" checked="checked" />No
+            </div>
+
+            <br />
+            <div>
+                <label asp-for="FeelRightNow">
+                    How do you feel right now?
+                </label>
+                <br />
+                <input type="radio" name="FeelRightNow" value="I feel healthy as normal" />I feel healthy as normal
+                <input type="radio" name="FeelRightNow" value="I'm not feeling quite right" checked="checked" />I'm not feeling quite right
+            </div>
+
+            <br />
+            <div>
+                <label asp-for="IsLeaveHomeToday">
+                    Did you leave home today?
+                </label>
+                <br />
+                <input type="radio" name="IsLeaveHomeToday" value="true" /> Yes
+                <input type="radio" name="IsLeaveHomeToday" value="false" checked="checked" /> No
+            </div>
+
+            <br />
+            <div>
+                <label asp-for="Treatment">
+                    What treatment are you receiving?
+                </label>
+
+                @Html.DropDownListFor(x => x.Treatment, new List<SelectListItem>
+                   {
+                        new SelectListItem() {Text = "None", Value="None"},
+                        new SelectListItem() {Text = "TB", Value="TB"},
+                        new SelectListItem() {Text = "Asthma", Value="Asthma"},
+                        new SelectListItem() {Text = "Diabetes", Value="Diabetes"},
+                        new SelectListItem() {Text = "Pneumonia", Value="Pneumonia"},
+                        new SelectListItem() {Text = "Other", Value="Other"}
+                   })
+            </div>
+            <br />
+            <div>
+                <input type="submit" value="Submit" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
