@@ -26,6 +26,7 @@ namespace TeamTeaRexCovid19.Web.Controllers
 
         public ActionResult Reminder()
         {
+            HttpContext.Session.SetString("UserIdSession", string.Empty);
             return View();
         }
     }
