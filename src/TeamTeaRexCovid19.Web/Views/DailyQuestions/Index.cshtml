@@ -1,4 +1,4 @@
-﻿@model TeamTeaRexCovid19.Web.Models.DailyQuestions
+﻿@model TeamTeaRexCovid19.Web.Models.DailyQuestionsViewModel
 
 @{
     ViewData["Title"] = "Daily Questions";
@@ -21,7 +21,7 @@
     <br />
 
     <div>
-        <label asp-for="Fever">
+        <label asp-for="IsFever">
             Do you have a fever?
         </label>
         <br />
@@ -33,7 +33,7 @@
     <br />
     <div>
 
-        <label asp-for="PersistentCough">
+        <label asp-for="IsPersistentCough">
             Do you have a persistent cough?
         </label>
         <br />
@@ -45,7 +45,7 @@
     </div>
     <br />
     <div>
-        <label asp-for="UnusualFatigue">
+        <label asp-for="IsUnusualFatigue">
             Are you experiencing unusual fatigue?
         </label>
         <br />
@@ -56,7 +56,7 @@
     </div>
     <br />
     <div>
-        <label asp-for="EatAnything">
+        <label asp-for="IsEatAnything">
             Have you been able to eat anything?
         </label>
         <br />
@@ -80,7 +80,7 @@
     </div>
     <br />
     <div>
-        <label asp-for="LeaveHomeToday">
+        <label asp-for="IsLeaveHomeToday">
             Did you leave home today?
         </label>
         <br />

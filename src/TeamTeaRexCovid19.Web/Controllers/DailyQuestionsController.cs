@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TeamTeaRexCovid19.Domain.Models;
+using TeamTeaRexCovid19.Web.Models;
 
 namespace TeamTeaRexCovid19.Web.Controllers
 {
@@ -10,11 +11,15 @@ namespace TeamTeaRexCovid19.Web.Controllers
             return View();
         }
 
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult SubmitDailyQuestions(string PeopleInteractedWith, bool Fever, bool PersistentCough, bool UnusualFatigue, bool EatAnything, bool FeelRightNow, bool LeaveHomeToday, string Treatment, string userId)
+        //[ValidateAntiForgeryToken]
+        public ActionResult SubmitDailyQuestions(DailyQuestionsViewModel dailyQuestionsViewModel)
         {
-            var dailyQuestions = new DailyQuestions(PeopleInteractedWith, Fever, PersistentCough, UnusualFatigue, EatAnything, FeelRightNow, LeaveHomeToday, Treatment);
+            var dailyQuestionsList = new DailyQuestions(dailyQuestionsViewModel.PeopleInteractedWith, dailyQuestionsViewModel.IsFever, dailyQuestionsViewModel.IsPersistentCough, dailyQuestionsViewModel.IsUnusualFatigue, dailyQuestionsViewModel.IsEatAnything, dailyQuestionsViewModel.FeelRightNow, dailyQuestionsViewModel.IsLeaveHomeToday, dailyQuestionsViewModel.Treatment);
+
+            
+
             return RedirectToAction("Reminder", "DailyQuestions");
         }
 
