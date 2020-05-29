@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -51,7 +50,6 @@ namespace TeamTeaRexCovid19.Web
                     name: "default",
                     pattern: "{controller=Login}/{action=Index}/{id?}");
             });
-
         }
     }
 }
