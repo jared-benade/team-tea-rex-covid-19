@@ -12,12 +12,12 @@ namespace TeamTeaRexCovid19.Web.Controllers
 
         [HttpPost]
         public IActionResult InitialQuestions(string SelectedProvince, string Suburb, string SelectedAgeGroup, bool IsSmoker,
-            bool IsDrinker, int DoesShareLivingSpace, string TransportType)
+            bool IsDrinker, int DoesShareLivingSpace, string TransportType, string userId)
         {
             if (string.IsNullOrEmpty(Suburb) || string.IsNullOrEmpty(DoesShareLivingSpace.ToString()))
-                return View($"Validation");
+                return View("Validation");
 
-            return RedirectToAction($"DailyQuestions", $"DailyQuestions");
+            return RedirectToAction("Index", "DailyQuestions");
         }
 
         public IActionResult Validation()
