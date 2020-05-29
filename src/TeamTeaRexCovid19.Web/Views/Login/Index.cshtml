@@ -11,6 +11,7 @@
         <label>Enter name:</label>
         @Html.TextBox("username", null)
         @(Html.Hidden("userId"))
+        @(Html.Hidden("isReturningUser"))
     </div>
     <div>
         <input type="submit" id="login" name="Login" value="Login" />
@@ -39,6 +40,7 @@
                         userId = storedUserId;
                         cookieValue = userId + '.' + 'Current';
                         cookieFound = true;
+                        $('#isReturningUser').val(true);
                     } else {
                         cookieValue = storedUserId;
                     }
