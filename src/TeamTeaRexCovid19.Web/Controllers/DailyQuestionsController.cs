@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System.Linq;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TeamTeaRexCovid19.Web.Controllers
@@ -12,7 +13,7 @@ namespace TeamTeaRexCovid19.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SubmitDailyQuestions(IFormCollection collection)
+        public ActionResult SubmitDailyQuestions(string PeopleInteractedWith, bool Fever, bool PersistentCough, bool UnusualFatigue, bool EatAnything, bool FeelRightNow, bool LeaveHomeToday, string Treatment, string userId)
         {
             return RedirectToAction("Reminder", "DailyQuestions");
         }

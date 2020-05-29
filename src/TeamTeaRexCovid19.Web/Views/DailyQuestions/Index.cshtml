@@ -1,128 +1,117 @@
-﻿
-@model TeamTeaRexCovid19.Web.Models.DailyQuestions
+﻿@model TeamTeaRexCovid19.Web.Models.DailyQuestions
 
 @{
     ViewData["Title"] = "Daily Questions";
+    Layout = "_Layout";
 }
 
-@*To implement same styling or table*@
 <h2>Daily Questions</h2>
 <hr />
-<br />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="SubmitDailyQuestions">
-            <div asp-validation-summary="ModelOnly"></div>
+<form asp-action="SubmitDailyQuestions">
+    @(Html.Hidden("userId"))
+    <div asp-validation-summary="ModelOnly"></div>
 
-            <div>
-                <label asp-for="PeopleInteractedWith">
-                    How many people outside of your immediate family have you interacted with today?
-                </label>
+    <div>
+        <label asp-for="PeopleInteractedWith">
+            How many people outside of your immediate family have you interacted with today?
+        </label>
 
-                @Html.DropDownListFor(x => x.PeopleInteractedWith, new List<SelectListItem>
-                   {
-                        new SelectListItem() {Text = "1", Value="1"},
-                        new SelectListItem() {Text = "2", Value="2"},
-                        new SelectListItem() {Text = "3", Value="3"},
-                        new SelectListItem() {Text = "4", Value="4"}
-
-                   })
-            </div>
-            <br />
-
-            <div>
-                <label asp-for="Fever">
-                    Do you have a fever?
-                </label>
-
-                <input style="margin-left:13%" type="radio" name="Fever" value="Yes" /> Yes
-                <br />
-
-                <input style="margin-left:24%" type="radio" name="Fever" value="No" checked="checked" /> No
-            </div>
-            <br />
-            <div>
-
-                <label asp-for="PersistentCough">
-                    Do you have a persistent cough?
-                </label>
-
-                <input style="margin-left:8%" type="radio" name="PersistentCough" value="Yes" /> Yes
-
-                <br />
-
-                <input style="margin-left:24%" type="radio" name="PersistentCough" value="No" checked="checked" /> No
-
-            </div>
-            <br />
-            <div>
-                <label asp-for="UnusualFatigue">
-                    Are you experiencing unusual fatigue?
-                </label>
-
-                <input style="margin-left:5%" type="radio" name="UnusualFatigue" value="Yes" />Yes
-
-                <br />
-                <input style="margin-left:24%" type="radio" name="UnusualFatigue" value="No" checked="checked" /> No
-            </div>
-            <br />
-            <div>
-                <label asp-for="EatAnything">
-                    Have you been able to eat anything?
-                </label>
-
-                <input style="margin-left:6%" type="radio" name="EatAnything" value="Yes" />Yes
-
-                <br />
-                <input style="margin-left:24%" type="radio" name="EatAnything" value="No" checked="checked" />No
-
-            </div>
-            <br />
-            <div>
-                <label asp-for="FeelRightNow">
-                    How do you feel right now?
-                </label>
-
-                <input style="margin-left:10%" type="radio" name="FeelRightNow" value="I feel healthy as normal" />I feel healthy as normal
-
-                <br />
-                <input style="margin-left:24%" type="radio" name="FeelRightNow" value="I'm not feeling quite right" checked="checked" />I'm not feeling quite right
-
-            </div>
-            <br />
-            <div>
-                <label asp-for="LeaveHomeToday">
-                    Did you leave home today?
-                </label>
-
-                <input style="margin-left:10%" type="radio" name="LeaveHomeToday" value="Yes" /> Yes
-
-                <br />
-                <input style="margin-left:24%" type="radio" name="LeaveHomeToday" value="No" checked="checked" /> No
-
-            </div>
-            <br />
-            <div>
-                <label asp-for="Treatment">
-                    What treatment are you receiving?
-                </label>
-
-                @Html.DropDownListFor(x => x.Treatment, new List<SelectListItem>
-                   {
-                        new SelectListItem() {Text = "TB", Value="TB"},
-                        new SelectListItem() {Text = "Asthma", Value="Asthma"},
-                        new SelectListItem() {Text = "Diabetes", Value="Diabetes"},
-                        new SelectListItem() {Text = "Pneumonia", Value="Pneumonia"},
-                        new SelectListItem() {Text = "Other", Value="Other"}
-                   })
-            </div>
-            <br />
-            <div>
-                <input type="submit" value="Submit" />
-            </div>
-        </form>
+        @Html.DropDownListFor(x => x.PeopleInteractedWith, new List<SelectListItem> { new SelectListItem() { Text = "0", Value = "0" }, new SelectListItem() { Text = "1-5", Value = "1-5" }, new SelectListItem() { Text = "6-10", Value = "6-10" }, new SelectListItem() { Text = "11-15", Value = "11-15" }, new SelectListItem() { Text = "16+", Value = "16+" } })
     </div>
-</div>
+    <br />
 
+    <div>
+        <label asp-for="Fever">
+            Do you have a fever?
+        </label>
+        <br />
+        Yes
+        <input type="radio" name="Fever" value="True" />
+        No
+        <input type="radio" name="Fever" value="False" checked="checked" />
+    </div>
+    <br />
+    <div>
 
+        <label asp-for="PersistentCough">
+            Do you have a persistent cough?
+        </label>
+        <br />
+        Yes
+        <input type="radio" name="PersistentCough" value="True" />
+        No
+        <input type="radio" name="PersistentCough" value="False" checked="checked" />
 
+    </div>
+    <br />
+    <div>
+        <label asp-for="UnusualFatigue">
+            Are you experiencing unusual fatigue?
+        </label>
+        <br />
+        Yes
+        <input type="radio" name="UnusualFatigue" value="True" />
+        No
+        <input type="radio" name="UnusualFatigue" value="False" checked="checked" />
+    </div>
+    <br />
+    <div>
+        <label asp-for="EatAnything">
+            Have you been able to eat anything?
+        </label>
+        <br />
+        Yes
+        <input type="radio" name="EatAnything" value="True" />
+        No
+        <input type="radio" name="EatAnything" value="False" checked="checked" />
+
+    </div>
+    <br />
+    <div>
+        <label asp-for="FeelRightNow">
+            How do you feel right now?
+        </label>
+        <br />
+        I feel healthy as normal
+        <input type="radio" name="FeelRightNow" value="True" />
+        I'm not feeling quite right
+        <input type="radio" name="FeelRightNow" value="False" checked="checked" />
+
+    </div>
+    <br />
+    <div>
+        <label asp-for="LeaveHomeToday">
+            Did you leave home today?
+        </label>
+        <br />
+        Yes
+        <input type="radio" name="LeaveHomeToday" value="True" />
+        No
+        <input type="radio" name="LeaveHomeToday" value="False" checked="checked" />
+    </div>
+    <br />
+    <div>
+        <label asp-for="Treatment">
+            What treatment are you receiving?
+        </label>
+
+        @Html.DropDownListFor(x => x.Treatment, new List<SelectListItem> { new SelectListItem() { Text = "TB", Value = "TB" }, new SelectListItem() { Text = "Asthma", Value = "Asthma" }, new SelectListItem() { Text = "Diabetes", Value = "Diabetes" }, new SelectListItem() { Text = "Pneumonia", Value = "Pneumonia" }, new SelectListItem() { Text = "Other", Value = "Other" } })
+    </div>
+    <br />
+    <div>
+        <input type="submit" value="Submit" />
+    </div>
+</form>
+
+<script>
+    new function () {
+        var splitCookies = document.cookie.split(';');
+        console.log('splitCookies', splitCookies);
+        splitCookies.forEach(cookie => {
+            if (cookie.includes('.Current')) {
+                var userId = cookie.split('=')[1].split('.')[0];
+                document.getElementById("userId").value = userId;
+            }
+        });
+    }();
+</script>
