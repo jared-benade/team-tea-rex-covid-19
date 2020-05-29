@@ -1,5 +1,5 @@
-﻿using System;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using TeamTeaRexCovid19.Domain.Models;
 
 namespace TeamTeaRexCovid19.Web.Controllers
 {
@@ -16,6 +16,8 @@ namespace TeamTeaRexCovid19.Web.Controllers
         {
             if (string.IsNullOrEmpty(Suburb) || string.IsNullOrEmpty(DoesShareLivingSpace.ToString()))
                 return View("Validation");
+
+            var initialQuestions = new InitialQuestions(SelectedProvince, Suburb, SelectedAgeGroup, IsSmoker, IsDrinker, DoesShareLivingSpace, TransportType);
 
             return RedirectToAction("Index", "DailyQuestions");
         }

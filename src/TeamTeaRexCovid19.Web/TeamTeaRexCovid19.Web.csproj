@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TeamTeaRexCovid19.Data\TeamTeaRexCovid19.Data.csproj" />
+    <ProjectReference Include="..\TeamTeaRexCovid19.Domain\TeamTeaRexCovid19.Domain.csproj" />
   </ItemGroup>
 
 </Project>
