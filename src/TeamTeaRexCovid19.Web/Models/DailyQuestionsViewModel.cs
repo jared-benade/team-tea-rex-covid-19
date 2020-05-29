@@ -2,7 +2,7 @@
 
 namespace TeamTeaRexCovid19.Web.Models
 {
-    public class DailyQuestions
+    public class DailyQuestionsViewModel
     {
         [Required(ErrorMessage = "Please specify if you have interacted with any people recently")]
         public int PeopleInteractedWith { get; set; }
@@ -20,7 +20,7 @@ namespace TeamTeaRexCovid19.Web.Models
         public bool IsEatAnything { get; set; }
 
         [Required(ErrorMessage = "Please specify if you feel any pain")]
-        public string FeelRightNow { get; set; }
+        public bool FeelRightNow { get; set; }
 
         [Required(ErrorMessage = "Please select on how you feel ritght now")]
         public bool IsLeaveHomeToday { get; set; }
