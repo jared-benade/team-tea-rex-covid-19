@@ -2,7 +2,6 @@
 @{
     ViewData["Title"] = " User Login";
 }
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
 <h1>Welcome !!</h1>
 
@@ -19,8 +18,8 @@
 </form>
 
 <script>
-    $("#login").click(function () {
-        var username = $("#username").val();
+    document.getElementById("login").addEventListener("click", function () {
+        var username = document.getElementById("username").value;
 
         var userId = '';
         var cookieFound = false;
@@ -37,11 +36,11 @@
                     var storedUserId = storedUserIdWithFlag.split('.')[0];
                     var cookieUsername = cookie.split('=')[0].trim();
 
-                    if (cookieUsername.toLowerCase() ===  username.toLowerCase()) {
+                    if (cookieUsername.toLowerCase() === username.toLowerCase()) {
                         userId = storedUserId;
                         cookieValue = userId + '.' + 'Current';
                         cookieFound = true;
-                        $('#isReturningUser').val(true);
+                        document.getElementById("isReturningUser").value = true;
                     } else {
                         cookieValue = storedUserId;
                     }
@@ -56,8 +55,7 @@
             var currentUserId = userId + '.' + 'Current';
             setCookie(username, currentUserId);
         }
-
-        $("#userId").val(userId);
+        document.getElementById("userId").value = userId;
     });
 
     function createGuid() {
