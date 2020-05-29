@@ -27,6 +27,7 @@
 
         if (document.cookie) {
             var splitCookies = document.cookie.split(';');
+            console.log('splitCookies', splitCookies);
 
             splitCookies.forEach(cookie => {
                 var cookieValue;
@@ -34,9 +35,9 @@
 
                 if (storedUserIdWithFlag) {
                     var storedUserId = storedUserIdWithFlag.split('.')[0];
-                    var cookieUsername = cookie.split('=')[0];
+                    var cookieUsername = cookie.split('=')[0].trim();
 
-                    if (cookie.toLowerCase().includes(username.toLowerCase())) {
+                    if (cookieUsername.toLowerCase() ===  username.toLowerCase()) {
                         userId = storedUserId;
                         cookieValue = userId + '.' + 'Current';
                         cookieFound = true;
