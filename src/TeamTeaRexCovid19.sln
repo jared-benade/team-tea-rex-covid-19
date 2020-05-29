@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamTeaRexCovid19.Web", "TeamTeaRexCovid19.Web\TeamTeaRexCovid19.Web.csproj", "{6CDFB675-2211-478E-965F-4F9377093AA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeamTeaRexCovid19.Web", "TeamTeaRexCovid19.Web\TeamTeaRexCovid19.Web.csproj", "{6CDFB675-2211-478E-965F-4F9377093AA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamTeaRexCovid19.Data", "TeamTeaRexCovid19.Data\TeamTeaRexCovid19.Data.csproj", "{65EA0C23-0BDF-40AD-AB91-59954750C316}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamTeaRexCovid19.Domain", "TeamTeaRexCovid19.Domain\TeamTeaRexCovid19.Domain.csproj", "{D711FFA7-D697-4868-B759-0D6A86799F44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{6CDFB675-2211-478E-965F-4F9377093AA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CDFB675-2211-478E-965F-4F9377093AA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CDFB675-2211-478E-965F-4F9377093AA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65EA0C23-0BDF-40AD-AB91-59954750C316}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65EA0C23-0BDF-40AD-AB91-59954750C316}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65EA0C23-0BDF-40AD-AB91-59954750C316}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65EA0C23-0BDF-40AD-AB91-59954750C316}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D711FFA7-D697-4868-B759-0D6A86799F44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D711FFA7-D697-4868-B759-0D6A86799F44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D711FFA7-D697-4868-B759-0D6A86799F44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D711FFA7-D697-4868-B759-0D6A86799F44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
