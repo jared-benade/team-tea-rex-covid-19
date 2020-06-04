@@ -26,7 +26,7 @@ namespace TeamTeaRexCovid19.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SubmitDailyQuestions(DailyQuestionsViewModel dailyQuestionsViewModel)
+        public ActionResult SubmitDailyQuestions(DailyQuestionsViewModel viewModel)
         {
             var dailyQuestionsAnswer = new DailyQuestionsAnswer(viewModel.PeopleInteractedWith, viewModel.IsFever, viewModel.IsPersistentCough, viewModel.IsUnusualFatigue, viewModel.IsEatAnything, viewModel.FeelNormalRightNow, viewModel.IsLeaveHomeToday, viewModel.Treatment);
 
