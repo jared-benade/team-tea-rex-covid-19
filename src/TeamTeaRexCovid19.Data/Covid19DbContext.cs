@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using TeamTeaRexCovid19.Data.Schema;
 
 namespace TeamTeaRexCovid19.Data
 {
@@ -11,6 +12,9 @@ namespace TeamTeaRexCovid19.Data
         {
             _configuration = configuration;
         }
+
+        public virtual DbSet<InitialQuestionsTable> InitialQuestions { get; set; }
+        public virtual DbSet<DailyQuestionsTable> DailyQuestions { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

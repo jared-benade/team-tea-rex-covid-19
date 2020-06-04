@@ -5,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TeamTeaRexCovid19.Data;
+using TeamTeaRexCovid19.Data.Repositories;
+using TeamTeaRexCovid19.Domain.Interfaces;
 
 namespace TeamTeaRexCovid19.Web
 {
@@ -23,6 +25,9 @@ namespace TeamTeaRexCovid19.Web
             services.AddControllersWithViews();
 
             services.AddDbContext<Covid19DbContext>();
+
+            services.AddScoped<IDailyQuestionsRepository, DailyQuestionsRepository>();
+            services.AddScoped<IInitialQuestionsRepository, InitialQuestionsRepository>();
 
             services.AddDistributedMemoryCache();
 

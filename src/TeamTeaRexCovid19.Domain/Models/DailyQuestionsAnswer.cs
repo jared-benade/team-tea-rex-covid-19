@@ -1,26 +1,29 @@
-﻿namespace TeamTeaRexCovid19.Domain.Models
+﻿using System;
+
+namespace TeamTeaRexCovid19.Domain.Models
 {
-    public class DailyQuestions
+    public class DailyQuestionsAnswer
     {
-        public DailyQuestions(int peopleInteractedWith, bool fever, bool persistentCough, bool unusualFatigue, bool eatAnything, bool feelRightNow, bool leaveHomeToday, string treatment)
+        public DailyQuestionsAnswer(string peopleInteractedWith, bool fever, bool persistentCough, bool unusualFatigue, bool eatAnything, bool feelNormalRightNow, bool leaveHomeToday, string treatment)
         {
             PeopleInteractedWith = peopleInteractedWith;
             Fever = fever;
             PersistentCough = persistentCough;
             UnusualFatigue = unusualFatigue;
             EatAnything = eatAnything;
-            FeelRightNow = feelRightNow;
+            FeelNormalRightNow = feelNormalRightNow;
             LeaveHomeToday = leaveHomeToday;
             Treatment = treatment;
         }
 
-        public int PeopleInteractedWith { get; set; }
+        public string PeopleInteractedWith { get; set; }
         public bool Fever { get; set; }
         public bool PersistentCough { get; set; }
         public bool UnusualFatigue { get; set; }
         public bool EatAnything { get; set; }
-        public bool FeelRightNow { get; set; }
+        public bool FeelNormalRightNow { get; set; }
         public bool LeaveHomeToday { get; set; }
         public string Treatment { get; set; }
+        public DateTime Timestamp => DateTime.Now;
     }
 }

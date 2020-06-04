@@ -7,7 +7,7 @@
 <h2>Initial Questions</h2>
 <hr />
 <form method="post">
-    @(Html.Hidden("userId"))
+    @(Html.Hidden("UserId"))
     <div asp-validation-summary="ModelOnly"></div>
     <div>
         <label asp-for="SelectedProvince"></label>
@@ -75,7 +75,7 @@
         splitCookies.forEach(cookie => {
             if (cookie.includes('.Current')) {
                 var userId = cookie.split('=')[1].split('.')[0];
-                document.getElementById("userId").value = userId;
+                document.getElementById("UserId").value = userId;
             }
         });
     }();

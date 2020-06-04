@@ -5,7 +5,7 @@ namespace TeamTeaRexCovid19.Web.Models
     public class DailyQuestionsViewModel
     {
         [Required(ErrorMessage = "Please specify if you have interacted with any people recently")]
-        public int PeopleInteractedWith { get; set; }
+        public string PeopleInteractedWith { get; set; }
 
         [Required(ErrorMessage = "Please select if you have fever")]
         public bool IsFever { get; set; }
@@ -20,12 +20,14 @@ namespace TeamTeaRexCovid19.Web.Models
         public bool IsEatAnything { get; set; }
 
         [Required(ErrorMessage = "Please specify if you feel any pain")]
-        public bool FeelRightNow { get; set; }
+        public bool FeelNormalRightNow { get; set; }
 
         [Required(ErrorMessage = "Please select on how you feel ritght now")]
         public bool IsLeaveHomeToday { get; set; }
 
         [Required(ErrorMessage = "Please choose if you currently taking any medication")]
         public string Treatment { get; set; }
+
+        public string UserId { get; set; }
     }
 }

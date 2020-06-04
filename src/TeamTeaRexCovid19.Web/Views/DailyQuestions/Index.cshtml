@@ -7,8 +7,8 @@
 
 <h2>Daily Questions</h2>
 <hr />
-<form asp-action="SubmitDailyQuestions">
-    @(Html.Hidden("userId"))
+<form method="post">
+    @(Html.Hidden("UserId"))
     <div asp-validation-summary="ModelOnly"></div>
 
     <div>
@@ -26,9 +26,9 @@
         </label>
         <br />
         Yes
-        <input type="radio" name="Fever" value="True" />
+        <input type="radio" name="IsFever" value="true" />
         No
-        <input type="radio" name="Fever" value="False" checked="checked" />
+        <input type="radio" name="IsFever" value="false" checked="checked" />
     </div>
     <br />
     <div>
@@ -38,9 +38,9 @@
         </label>
         <br />
         Yes
-        <input type="radio" name="PersistentCough" value="True" />
+        <input type="radio" name="IsPersistentCough" value="true" />
         No
-        <input type="radio" name="PersistentCough" value="False" checked="checked" />
+        <input type="radio" name="IsPersistentCough" value="false" checked="checked" />
 
     </div>
     <br />
@@ -50,9 +50,9 @@
         </label>
         <br />
         Yes
-        <input type="radio" name="UnusualFatigue" value="True" />
+        <input type="radio" name="IsUnusualFatigue" value="true" />
         No
-        <input type="radio" name="UnusualFatigue" value="False" checked="checked" />
+        <input type="radio" name="IsUnusualFatigue" value="false" checked="checked" />
     </div>
     <br />
     <div>
@@ -61,21 +61,21 @@
         </label>
         <br />
         Yes
-        <input type="radio" name="EatAnything" value="True" />
+        <input type="radio" name="IsEatAnything" value="true" />
         No
-        <input type="radio" name="EatAnything" value="False" checked="checked" />
+        <input type="radio" name="IsEatAnything" value="false" checked="checked" />
 
     </div>
     <br />
     <div>
-        <label asp-for="FeelRightNow">
+        <label asp-for="FeelNormalRightNow">
             How do you feel right now?
         </label>
         <br />
         I feel healthy as normal
-        <input type="radio" name="FeelRightNow" value="True" />
+        <input type="radio" name="FeelNormalRightNow" value="true" />
         I'm not feeling quite right
-        <input type="radio" name="FeelRightNow" value="False" checked="checked" />
+        <input type="radio" name="FeelNormalRightNow" value="false" checked="checked" />
 
     </div>
     <br />
@@ -85,9 +85,9 @@
         </label>
         <br />
         Yes
-        <input type="radio" name="LeaveHomeToday" value="True" />
+        <input type="radio" name="IsLeaveHomeToday" value="true" />
         No
-        <input type="radio" name="LeaveHomeToday" value="False" checked="checked" />
+        <input type="radio" name="IsLeaveHomeToday" value="false" checked="checked" />
     </div>
     <br />
     <div>
@@ -99,7 +99,7 @@
     </div>
     <br />
     <div>
-        <input type="submit" value="Submit" />
+        <input type="submit" name="Submit" value="Submit" asp-action="SubmitDailyQuestions" />
     </div>
 </form>
 
@@ -110,7 +110,7 @@
         splitCookies.forEach(cookie => {
             if (cookie.includes('.Current')) {
                 var userId = cookie.split('=')[1].split('.')[0];
-                document.getElementById("userId").value = userId;
+                document.getElementById("UserId").value = userId;
             }
         });
     }();

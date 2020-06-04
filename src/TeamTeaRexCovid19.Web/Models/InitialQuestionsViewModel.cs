@@ -36,6 +36,7 @@ namespace TeamTeaRexCovid19.Web.Models
         [DisplayName("What are you're means of transport?")]
         [Required(ErrorMessage = "Please specify the type of transport you use")]
         public string TransportType { get; set; }
-        public IEnumerable<SelectListItem> TransportTypes { get; set; }
+
+        public string UserId { get; set; }
     }
 }
