@@ -106,7 +106,6 @@
 <script>
     new function () {
         var splitCookies = document.cookie.split(';');
-        console.log('splitCookies', splitCookies);
         splitCookies.forEach(cookie => {
             if (cookie.includes('.Current')) {
                 var userId = cookie.split('=')[1].split('.')[0];
